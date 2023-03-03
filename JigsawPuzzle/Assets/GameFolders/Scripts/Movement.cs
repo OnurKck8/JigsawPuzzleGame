@@ -16,7 +16,8 @@ public class Movement : MonoBehaviour
         _startPos = transform.position;
 
         _cardArray = GameObject.FindGameObjectsWithTag("Box");
-        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     void Update()
@@ -29,10 +30,11 @@ public class Movement : MonoBehaviour
                 {
                     float _distance = Vector3.Distance(card.transform.position, transform.position);
 
-                    if(_distance<=1)
+                    if (_distance<=0.5f)
                     {
                         transform.position = card.transform.position;
                         _gameManager.IncreaseNumber();
+                        this.enabled=false;
                     }
 
                     else

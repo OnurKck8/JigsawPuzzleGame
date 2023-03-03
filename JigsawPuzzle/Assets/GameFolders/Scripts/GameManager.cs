@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    int _placedCard = 0;
-    int _totalPuzzle = 16;
+    public int _placedCard = 0;
+    int _totalPuzzle = 12;
+
+    public GameObject _gamePanel;
 
     void Start()
     {
-        
+        _gamePanel.SetActive(false);
     }
 
     
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
         if(_placedCard==_totalPuzzle)
         {
             Debug.Log("sonraki bölüm geç");
+            _gamePanel.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
